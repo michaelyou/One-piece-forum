@@ -3,11 +3,11 @@
 from django.contrib.auth.backends import ModelBackend # 继承这个为了使用admin的权限控制
 from forum.models import ForumUser
 
-class EmailAuthBackend(ModelBackend):
-
+#验证用户登录，注册到setting中的AUTHENTICATION_BACKENDS
+class UserAuthBackend(ModelBackend):
     def authenticate(self, username=None, password=None):
         try:
-            user = ForumUser.objects.get(email=username)
+            user = ForumUser.objects.get(username=username)
             if user.check_password(password):
                 return user
             return None

@@ -146,7 +146,7 @@ def post_login(request):
     auth.login(request, user)
 
     if user.is_staff:
-        return redirect(request.GET.get('next', '/manage/admin/'))
+        return redirect(request.GET.get('next', '/admin/'))
     '''
     这就是一个普通的重定向，从request.GET这个字典中取next字段的值，如果值不存在，那就用第二个参数作为url
     '''
@@ -189,6 +189,7 @@ def post_register(request):
         return get_register(request, errors=form.errors)
 
     user = form.save()
+
     '''
     if user:
         # 注册成功，发送邮件到用户邮箱

@@ -44,7 +44,10 @@ class NodeManager(models.Manager):
     Node objects
     '''
     def get_all_hot_nodes(self):
-        query = self.get_queryset().filter(topic__reply_count__gt=0).order_by('-topic__reply_count')
+        #query = self.get_queryset().filter(topic__reply_count__gt=0).order_by('-topic__reply_count')
+        #query = self.get_queryset().filter(topic__reply_count__gt=0)
+        query = self.get_queryset().filter(topic_count__gt=0).order_by('-topic_count')
+        #assert False
         query.query.group_by = ['id'] # Django使用GROUP BY方法
         return query
 
@@ -155,32 +158,32 @@ class ForumUser(AbstractUser):
     douban = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
-        return self.nickname
+        return self.nickname or ' '
 
 
 class Plane(models.Model):
     '''
     论坛节点分类,比Node高一级
     '''
-    name = models.CharField(max_length=200, null=True, blank=True)
+    name = models.CharField(max_length=200, null=True)
     created = models.DateTimeField(null=True, blank=True)
     updated = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
-        return self.name
+        return self.name or ' '
 
 
 class Node(models.Model):
     '''
     论坛板块单位，节点
     '''
-    name = models.CharField(max_length=200, null=True, blank=True)
-    slug = models.SlugField(max_length=200, null=True, blank=True)          # 块，作为node的识别url
+    name = models.CharField(max_length=200, null=True)
+    slug = models.SlugField(max_length=200, null=True)          # 块，作为node的识别url
     thumb = models.CharField(max_length=200, null=True, blank=True)         # 拇指?
     introduction = models.CharField(max_length=500, null=True, blank=True)  # 介绍
     created = models.DateTimeField(null=True, blank=True)
     updated = models.DateTimeField(null=True, blank=True)
-    plane = models.ForeignKey(Plane, null=True, blank=True)
+    plane = models.ForeignKey(Plane, null=True)
     topic_count = models.IntegerField(null=True, blank=True)
     custom_style = NormalTextField(null=True, blank=True)
     limit_reputation = models.IntegerField(null=True, blank=True) # 最小声誉，估计是权限控制
@@ -195,21 +198,21 @@ class Node(models.Model):
         super(Node, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return self.name
+        return self.name or ' '
 
 
 class Topic(models.Model):
     '''
     话题表，定义了论坛帖子的基本单位
     '''
-    title = models.CharField(max_length=200, null=True, blank=True)
-    slug = models.SlugField(max_length=200, null=True, blank=True)
-    content = NormalTextField(null=True, blank=True)
+    title = models.CharField(max_length=200, null=True)
+    slug = models.SlugField(max_length=200, null=True)
+    content = NormalTextField(null=True)
     status = models.IntegerField(null=True, blank=True)
     hits = models.IntegerField(null=True, blank=True)
     created = models.DateTimeField(null=True, blank=True)
     updated = models.DateTimeField(null=True, blank=True)
-    node = models.ForeignKey(Node, null=True, blank=True)
+    node = models.ForeignKey(Node, null=True)
     author = models.ForeignKey(ForumUser, related_name='topic_author', null=True, blank=True) # 设置了related_name后，可不用_set
     reply_count = models.IntegerField(null=True, blank=True)
     last_replied_by = models.ForeignKey(ForumUser, related_name='topic_last', null=True, blank=True)
@@ -228,15 +231,15 @@ class Topic(models.Model):
         super(Topic, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return self.title
+        return self.title or ' '
 
 class Reply(models.Model):
     '''
     话题的回复
     '''
-    topic = models.ForeignKey(Topic, null=True, blank=True)
+    topic = models.ForeignKey(Topic, null=True)
     author = models.ForeignKey(ForumUser, related_name='reply_author', null=True, blank=True)
-    content = NormalTextField(null=True, blank=True)
+    content = NormalTextField(null=True)
     created = models.DateTimeField(null=True, blank=True)
     updated = models.DateTimeField(null=True, blank=True)
     up_vote = models.IntegerField(null=True, blank=True)
@@ -246,7 +249,7 @@ class Reply(models.Model):
     objects = ReplyManager()
 
     def __unicode__(self):
-        return self.content
+        return self.content or ' '
 
 
 class Favorite(models.Model):
@@ -280,7 +283,7 @@ class Notification(models.Model):
     objects = NotificationManager()
 
     def __unicode__(self):
-        return self.content
+        return self.content or ' '
 
 
 class Transaction(models.Model):

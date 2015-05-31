@@ -25,10 +25,22 @@ DATABASES = {
 }
 
 '''
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'onepiece_db',
+        'USER': 'youwangqiu',
+        'PASSWORD': 'root123',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -126,7 +138,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = ( # F2E中有current_user对象和request对象,这里设置可在模板中使用RquestContext
+TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth', # user对象等等
     'django.core.context_processors.request', # request对象等等
     'django.core.context_processors.static', # 在模板中使用{{ STATIC_URL }}获取静态文件路径
@@ -199,20 +211,22 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db' # 默认设置
 AUTH_USER_MODEL = 'forum.ForumUser'
 
 # 用户认证BackEnds
-AUTHENTICATION_BACKENDS = ('forum.backends.EmailAuthBackend',)
+AUTHENTICATION_BACKENDS = ('forum.backends.UserAuthBackend',)
 
 # 默认登陆uri
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
 
+
 # 发送邮件设置
 EMAIL_HOST = 'smtp.163.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER= 'wq_you@163.com'
-EMAIL_HOST_PASSWORD= 'ywq08026619'
-#DEFAULT_FROM_EMAIL = '1191809906@qq.com'
-EMAIL_USE_TLS = True 
+EMAIL_PORT = 587
+EMAIL_HOST_USER= '18551616109@163.com'
+EMAIL_HOST_PASSWORD= 'root123'
+DEFAULT_FROM_EMAIL = '18551616109@163.com'
+SERVER_EMAIL= '18551616109@163.com'
+EMAIL_USE_TLS = True
 
 # 注册用户保留关键字，非Django设置
 RESERVED = ["user", "topic", "home", "setting", "forgot", "login", "logout", "register", "admin"]

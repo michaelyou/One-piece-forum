@@ -176,6 +176,9 @@ def get_topic_create(request, slug=None, errors=None):
 @login_required
 def post_topic_create(request, slug=None):
     node = get_object_or_404(Node, slug=slug)
+    topic_count = Topic.objects.filter(node=node).count()   #the two node are diffrent, the first is used as a filter
+    Node.objects.filter(slug=slug).update(topic_count=topic_count)
+    #assert False
 
     form = CreateForm(request.POST)
     if not form.is_valid():
@@ -215,6 +218,7 @@ def post_topic_create(request, slug=None):
     ForumUser.objects.filter(pk=user.id).update(reputation=reputation)
 
     return redirect('/')
+
 
 
 @login_required

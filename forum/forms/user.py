@@ -79,8 +79,9 @@ class ForgotPasswordForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(min_length=4, max_length=64,
-        error_messages=error_messages.get('email'))
+    username = forms.RegexField(min_length=3, max_length=12,
+        regex=r'^[a-zA-Z][a-zA-Z0-9_]*$',
+        error_messages=error_messages.get('username'))
     password = forms.CharField(min_length=6, max_length=64,
         error_messages=error_messages.get('password'))
 
@@ -89,11 +90,11 @@ class LoginForm(forms.Form):
         super(LoginForm, self).__init__(*args, **kwargs)
 
     def clean(self):
-        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
 
-        if email and password:
-            self.user_cache = authenticate(username=email, password=password)
+        if username and password:
+            self.user_cache = authenticate(username=username, password=password)
             if self.user_cache is None:
                 raise forms.ValidationError(u'邮箱或者密码不正确')
             elif not self.user_cache.is_active:
