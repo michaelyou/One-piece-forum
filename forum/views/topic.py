@@ -633,7 +633,7 @@ def get_members(request):
         }
         notifications_count = user.notify_user.filter(status=0).count()
 
-    members = ForumUser.objects.all().order_by('-id')[:49]
+    members = ForumUser.objects.all().order_by('-id')[:49]   #这里按id排序，实际就是按注册时间排序
     active_members = ForumUser.objects.all().order_by('-last_login')[:49]
     #active_page = 'members'
     return render_to_response('topic/members.html',
