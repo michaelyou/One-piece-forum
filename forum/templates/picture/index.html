@@ -1,0 +1,171 @@
+{% extends 'snippet/layout.html' %}
+{% load forum_extras %}
+
+{% block javascript %}
+     <script type="text/javascript" src="/static/js/base/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/base/in-min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/main.css?t=20130807001.css" />
+            <script type="text/javascript">
+        jQuery(document).ready(function() {
+            $('.J_search').submit(function(e) {
+                var _node = $(this);
+                var query = _node.find('input').val();
+                e.preventDefault();
+                window.open('http://www.google.com/search?q=site:f2e.im/t%20' + query, "_blank");
+            });
+        });
+    </script>
+        <style type="text/css">
+        .totop a {
+            display: block;
+            width: 40px;
+            height: 35px;
+            background: url('/static/images/totop.gif') no-repeat;
+            text-indent: -9999px;
+            text-decoration: none;
+        }
+
+        .totop a:hover {
+            background-position: 0 -35px;
+        }
+    </style>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="container-fluid container mt15">
+    <div class="row-fluid">
+        <div class="span9 left">
+                <div class="member-lists book-lists container-box">
+        <div class="ui-header">
+            <span class="title">海贼图世界</span>
+        </div>
+        <div class="ui-content">
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/瓦波鲁海贼团.jpg" title="瓦波鲁海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/瓦波鲁海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/瓦波鲁海贼团.jpg" title="瓦波鲁海贼团">瓦波鲁海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/亚尔丽塔海贼团.jpg" title="亚尔丽塔海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/亚尔丽塔海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/亚尔丽塔海贼团.jpg" title="亚尔丽塔海贼团">亚尔丽塔海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/银狐福克西海贼团.jpg" title="银狐福克西海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/银狐福克西海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/银狐福克西海贼团.jpg" title="银狐福克西海贼团">银狐福克西海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/索隆海贼团.jpg" title="索隆海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/索隆海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/索隆海贼团.jpg" title="索隆海贼团">索隆海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/小丑巴其（巴基）海贼团.jpg" title="小丑巴其（巴基）海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/小丑巴其（巴基）海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/小丑巴其（巴基）海贼团.jpg" title="小丑巴其（巴基）海贼团">小丑巴其（巴基）海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/猩猩打捞团.jpg" title="猩猩打捞团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/猩猩打捞团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/猩猩打捞团.jpg" title="猩猩打捞团">猩猩打捞团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/微微海贼团（想象的）.jpg" title="微微海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/微微海贼团（想象的）.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/微微海贼团（想象的）.jpg" title="微微海贼团">微微海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/盘普金海贼团.jpg" title="盘普金海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/盘普金海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/盘普金海贼团.jpg" title="盘普金海贼团">盘普金海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/克罗克达尔海贼团.jpg" title="克罗克达尔海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/克罗克达尔海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/克罗克达尔海贼团.jpg" title="克罗克达尔海贼团">克罗克达尔海贼团</a>
+                    </span>
+                </div>
+                            <div class="member book">
+                    <a href="http://7xj6cl.com1.z0.glb.clouddn.com/恶龙海贼团.jpg" title="恶龙海贼团">
+                        <img src="http://7xj6cl.com1.z0.glb.clouddn.com/恶龙海贼团.jpg" alt="" class="avatar thumb" />
+                    </a>
+                    <span class="username title">
+                        <a href="http://7xj6cl.com1.z0.glb.clouddn.com/恶龙海贼团.jpg" title="恶龙海贼团">恶龙海贼团</a>
+                    </span>
+                </div>
+
+
+          </div>
+    </div>
+        </div>
+        </div>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {% if user.is_authenticated %}
+        <div class="usercard container-box">
+            <div class="ui-header">
+                <a href="/u/{{ user.username }}/">
+                    <img src="/static/avatar/m_{% if user.avatar %}{{ user.avatar }}{% else %}default.png{% endif %}?t={% gen_random %}" alt="" class="avatar" />
+                </a>
+                <div class="username">{{ user.username }}</div>
+                <div class="website"><a href="{% if user.website %}{{ user.website }}{% endif %}">{% if user.website %}{{ user.website }}{% endif %}</a></div>
+            </div>
+            <div class="ui-content">
+                <div class="status status-topic">
+                    <strong><a href="/u/{{ user.username }}/topics/">{{ counter.topics }}</a></strong> 主题
+                </div>
+                <div class="status status-reply">
+                    <strong><a href="/u/{{ user.username }}/replies/">{{ counter.replies }}</a></strong> 回复
+                </div>
+                <div class="status status-favorite">
+                    <strong><a href="/u/{{ user.username }}/favorites/">{{ counter.favorites }}</a></strong> 收藏
+                </div>
+                <div class="status status-reputation">
+                    <strong>{% if user.reputation %}{{ user.reputation }}{% else %}0{% endif %}</strong> 威望
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="login-box container-box">
+            <div class="ui-content tc">
+                <a class="btn btn-small mr10" type="button" href="/login/?next={{ request.get_full_path }}">登录</a>
+                <a class="btn btn-small mr10" type="button" href="/register/">注册</a>
+                <a class="btn btn-small" type="button" href="/forgot/">找回密码</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

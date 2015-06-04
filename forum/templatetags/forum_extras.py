@@ -42,8 +42,8 @@ def build_uri(uri, param, value): # 给uri添加参数或者修改参数的值
 
 
 @register.simple_tag
-def pagination(page, uri, list_rows = 10): # 显示分页
-    def gen_page_list(current_page = 1, total_page = 1, list_rows = 10):
+def pagination(page, uri, list_rows=10 ): # 显示分页
+    def gen_page_list(current_page = 1, total_page = 1, list_rows =10):
         if total_page <= list_rows:
             return range(1, total_page + 1)
         elif current_page <= (list_rows // 2):

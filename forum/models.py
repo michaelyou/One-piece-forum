@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.text import  slugify
 
 
-# 工具
+# 分页工具，完全重新实现
 class Pages(object):
     '''
     分页查询类
@@ -56,7 +56,7 @@ class TopicManager(models.Manager):
     '''
     Topic objects
     '''
-    def get_all_topic(self, num=24, current_page=1): # 可以考虑在这里过滤掉没有头像的用户发帖，不显示在主页
+    def get_all_topic(self, num=8, current_page=1): # 可以考虑在这里过滤掉没有头像的用户发帖，不显示在主页
         count = self.get_queryset().count()
         page = Pages(count, current_page, num)
         query = self.get_queryset().select_related('node', 'author', 'last_replied_by').\

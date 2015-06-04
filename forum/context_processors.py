@@ -6,7 +6,7 @@ def custom_proc(request):
         navigation_bar = [
             ('/', 'topic', '社区'),
             ('/members/', 'members', '成员'),
-            ('/static/pages/picture/index.html', 'picture', '照片墙'),
+            ('/pictures/', 'picture', '照片墙'),
             ('/static/pages/timeline/index.html', 'timeline', '大事记'),
         ],
     )

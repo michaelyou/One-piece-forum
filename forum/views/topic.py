@@ -16,7 +16,6 @@ from common import find_mentions
 def get_index(request):
     #anonymousUser object
     user = request.user
-    #assert False
     #未登录状态下，user是AnonymousUser，调用is_authenticated返回false
     if user.is_authenticated():
         counter = {
@@ -177,6 +176,7 @@ def get_topic_create(request, slug=None, errors=None):
 def post_topic_create(request, slug=None):
     node = get_object_or_404(Node, slug=slug)
     topic_count = Topic.objects.filter(node=node).count()   #the two node are diffrent, the first is used as a filter
+    topic_count += 1
     Node.objects.filter(slug=slug).update(topic_count=topic_count)
     #assert False
 

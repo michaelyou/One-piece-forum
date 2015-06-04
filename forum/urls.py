@@ -1,3 +1,4 @@
+#encoding=utf-8
 from django.conf.urls import patterns, include, url
 from forum.forms.user import LoginForm
 
@@ -18,9 +19,8 @@ urlpatterns = [
     #of extra keyword arguments to pass to the view function.
 
 
-    url(r'^$', common.method_splitter, {'GET': topic.get_index}),
-    url(r'^pictures/$', common.method_splitter, {'GET': ' '}),
-    #url(r'^t/(\d+)/$', common.method_splitter, {'GET': topic.get_view, 'POST': topic.post_view}),
+    url(r'^$', common.method_splitter, {'GET': topic.get_index}),  #网站根目录
+    url(r'^pictures/$', common.method_splitter, {'GET': user.get_picture}),
     url(r'^t/(\d+)/$', common.method_splitter, {'GET': topic.get_topic_view, 'POST': topic.post_topic_view}),
     url(r'^t/create/(.*)/$', common.method_splitter, {'GET': topic.get_topic_create, 'POST': topic.post_topic_create}),
     url(r'^t/edit/(\d+)/$', common.method_splitter, {'GET': topic.get_topic_edit, 'POST': topic.post_topic_edit}),
@@ -42,7 +42,6 @@ urlpatterns = [
     url(r'^setting/password/$', common.method_splitter, {'GET': user.get_settingpwd, 'POST': user.post_settingpwd}),
     url(r'^forgot/$', common.method_splitter, {'GET': user.get_forgotpwd, 'POST': user.post_forgotpwd}),
     url(r'^login/$', common.method_splitter, {'GET': user.get_login, 'POST': user.post_login}),
-    #url(r'^accounts/login/$', login, ),
     url(r'^logout/$', common.method_splitter, {'GET': user.get_logout}),
     url(r'^register/$', common.method_splitter, {'GET': user.get_register, 'POST': user.post_register}),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'topics': TopicSitemap}}),

@@ -4,6 +4,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
+#DEBUG = False
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -127,6 +129,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.cache.FetchFromCacheMiddleware', # 缓存中间件，必须放在最后
 )
 
+#very important
 ROOT_URLCONF = 'xp.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.

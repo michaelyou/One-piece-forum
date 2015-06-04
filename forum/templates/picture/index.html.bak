@@ -61,7 +61,7 @@
                             <a href="/members" class="item-members">成员</a>
                         </li>
                                             <li class="active">
-                            <a href="/static/pages/picture/index.html" class="item-book">照片墙</a>
+                            <a href="/pictures" class="item-book">照片墙</a>
                         </li>
                                             <li>
                             <a href="/static/pages/timeline/index.html" class="item-timeline">大事记</a>

@@ -18,7 +18,7 @@ class ReplyForm(forms.Form):
 
 
 class CreateForm(forms.Form):
-    title = forms.CharField(min_length=3, max_length=56,
+    title = forms.CharField(min_length=2, max_length=56,
         error_messages={
             'required': u'标题不能为空，请填写帖子标题',
             'min_length': u'帖子标题长度过短（3-56个字符）',
