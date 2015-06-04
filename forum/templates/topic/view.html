@@ -214,8 +214,9 @@
         {% else %}
             <div class="ui-header">
                 <span class="title">登录后即可参与回复</span>
-            </div>
+
             <div class="ui-content">
+
                 <a class="btn btn-small mt5 mr10" type="button" href="/login/?next={{ request.get_full_path }}">登录</a>
                 <a class="btn btn-small mt5" type="button" href="/register/">注册</a>
             </div>
@@ -250,6 +251,12 @@
         </div>
     {% else %}
         <div class="login-box container-box">
+            <div class="ui-header">
+                <span class="title">
+                    <div class="explanation">One Piece--我是要成为海贼王的男人</div>
+                    <div class="description">奔向大海</div>
+                </span>
+            </div>
             <div class="ui-content tc">
                 <a class="btn btn-small mr10" type="button" href="/login/?next={{ request.get_full_path }}">登录</a>
                 <a class="btn btn-small mr10" type="button" href="/register/">注册</a>

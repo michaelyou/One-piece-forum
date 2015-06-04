@@ -638,3 +638,14 @@ def get_members(request):
     #active_page = 'members'
     return render_to_response('topic/members.html',
         context=RequestContext(request, locals()))
+
+def get_picture(request):
+    user = request.user
+    if user.is_authenticated():
+        counter = {
+            'topics': user.topic_author.all().count(),
+            'replies': user.reply_author.all().count(),
+            'favorites': user.fav_user.all().count()
+        }
+        notifications_count = user.notify_user.filter(status=0).count()
+    return render_to_response('picture/index.html', locals(), context_instance=RequestContext(request))

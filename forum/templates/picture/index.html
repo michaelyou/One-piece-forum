@@ -1,41 +1,7 @@
 {% extends 'snippet/layout.html' %}
 {% load forum_extras %}
 
-{% block javascript %}
-     <script type="text/javascript" src="/static/js/base/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="/static/js/base/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/js/base/in-min.js"></script>
-    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="/static/css/main.css?t=20130807001.css" />
-            <script type="text/javascript">
-        jQuery(document).ready(function() {
-            $('.J_search').submit(function(e) {
-                var _node = $(this);
-                var query = _node.find('input').val();
-                e.preventDefault();
-                window.open('http://www.google.com/search?q=site:f2e.im/t%20' + query, "_blank");
-            });
-        });
-    </script>
-        <style type="text/css">
-        .totop a {
-            display: block;
-            width: 40px;
-            height: 35px;
-            background: url('/static/images/totop.gif') no-repeat;
-            text-indent: -9999px;
-            text-decoration: none;
-        }
-
-        .totop a:hover {
-            background-position: 0 -35px;
-        }
-    </style>
-
-{% endblock %}
-
 {% block main %}
-
 <div class="container-fluid container mt15">
     <div class="row-fluid">
         <div class="span9 left">
@@ -161,6 +127,12 @@
         </div>
     {% else %}
         <div class="login-box container-box">
+            <div class="ui-header">
+                <span class="title">
+                    <div class="explanation">One Piece--我是要成为海贼王的男人</div>
+                    <div class="description">奔向大海</div>
+                </span>
+            </div>
             <div class="ui-content tc">
                 <a class="btn btn-small mr10" type="button" href="/login/?next={{ request.get_full_path }}">登录</a>
                 <a class="btn btn-small mr10" type="button" href="/register/">注册</a>
