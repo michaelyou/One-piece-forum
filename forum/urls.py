@@ -20,6 +20,7 @@ urlpatterns = [
 
 
     url(r'^$', common.method_splitter, {'GET': topic.get_index}),  #网站根目录
+    url(r'^timeline/$', common.method_splitter, {'GET' : topic.get_timeline}),
     url(r'^pictures/$', common.method_splitter, {'GET': topic.get_picture}),
     url(r'^t/(\d+)/$', common.method_splitter, {'GET': topic.get_topic_view, 'POST': topic.post_topic_view}),
     url(r'^t/create/(.*)/$', common.method_splitter, {'GET': topic.get_topic_create, 'POST': topic.post_topic_create}),

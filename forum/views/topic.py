@@ -649,3 +649,6 @@ def get_picture(request):
         }
         notifications_count = user.notify_user.filter(status=0).count()
     return render_to_response('picture/index.html', locals(), context_instance=RequestContext(request))
+
+def get_timeline(request):
+    return render_to_response('timeline/index.html', locals(), context_instance=RequestContext(request))

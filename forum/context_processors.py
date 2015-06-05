@@ -7,6 +7,6 @@ def custom_proc(request):
             ('/', 'topic', '社区'),
             ('/members/', 'members', '成员'),
             ('/pictures/', 'picture', '照片墙'),
-            ('/static/pages/timeline/index.html', 'timeline', '大事记'),
+            ('/timeline/', 'timeline', '大事记'),
         ],
     )

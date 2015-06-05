@@ -1,10 +1,10 @@
-<!DOCTYPE HTML>
-<html>
+{% extends 'snippet/layout.html' %}
 
+{% block main %}
 <div>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
     <title>海贼park成长时间线</title>
-    <link href="css/history.css" rel="stylesheet" />
+    <link href="../../static/timeline/css/history.css" rel="stylesheet" />
 </div>
 <body>
 <!-- 代码 开始 -->
@@ -12,7 +12,7 @@
     <div class="head">
         <div class="nav-box">
             <ul>
-                <li class="cur">海贼park成长时间线</li>
+                <li class="cur">大事件</li>
             </ul>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     </dl>
                 </li>
 
-                <li class="red">
+                <li class="green">
                     <h3>01.22<span>2015</span></h3>
                     <dl>
                         <dt>增加海贼社区成长时间线
@@ -108,9 +108,9 @@
     </div>
 </div>
 
-<script src="js/jquery.js"></script>
-<script src="js/main.js"></script>
+
+<script src="../../static/timeline/js/jquery.js"></script>
+<script src="../../static/timeline/js/main.js"></script>
 <!-- 代码 结束 -->
 
-</body>
-</html>
+{% endblock %}
